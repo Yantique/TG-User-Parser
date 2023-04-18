@@ -1,8 +1,8 @@
 from pyrogram import Client
 
 
-API_ID = '<API_ID>'  # Заменить на свой API_ID
-API_HASH = '<API_HASH>'  # Заменить на свой API_ID
+API_ID = <API_ID>  # Заменить на свой API_ID
+API_HASH = '<API_HASH>'  # Заменить на свой API_HASH
 
 
 def get_chat_ids():
@@ -18,9 +18,9 @@ def get_members(chat_id):
     with client:
         members = client.get_chat_members(chat_id)
         with open('members.txt', 'w', encoding='utf-8') as f:
-            f.write("user id, name\n")
+            f.write("user_id, username\n")
             for member in members:
-                f.write(f"{member.user.id}, {member.user.first_name}\n")
+                f.write(f"{member.user.id}, @{member.user.username}\n")
 
 
 if __name__ == '__main__':
